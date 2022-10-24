@@ -397,97 +397,30 @@
             </div>
         {% endfor %}
     </div>
-    <div class="row">
-        {#        <div class="col-xl-6 mt-3">#}
-        {#            <div class="d-flex box">#}
-        {#                <img class="imgBox" src="images/madrid.png" alt="london"/>#}
-        {#                <div class="right-side">#}
-        {#                    <h5>London</h5>#}
-        {#                    <div class="date">Apr 5-8</div>#}
-        {#                    <div class="date">Direct flight . 3h 15 min</div>#}
-        {#                    <div class="mt-4"><img src="images/img3.png" alt="img1"/></div>#}
-        {#                    <div class="d-flex justify-content-end currency">€ 35</div>#}
-        {#                </div>#}
-        {#            </div>#}
-        {#        </div>#}
-        {#        <div class="col-xl-6 mt-3">#}
-        {#            <div class="d-flex box">#}
-        {#                <img class="imgBox" src="images/paris.png" alt="london"/>#}
-        {#                <div class="right-side">#}
-        {#                    <h5>London</h5>#}
-        {#                    <div class="date">Apr 5-8</div>#}
-        {#                    <div class="date">Direct flight . 3h 15 min</div>#}
-        {#                    <div class="mt-4"><img src="images/img4.png" alt="img1"/></div>#}
-        {#                    <div class="d-flex justify-content-end currency">€ 35</div>#}
-        {#                </div>#}
-        {#            </div>#}
-        {#        </div>#}
-    </div>
     <h5 class="mt-5">Discover</h5>
     <div class="row mb-5">
+        {% for des in discover %}
         <div class="col-xl-4 mb-2">
             <div class="card">
                 <div class="card-header p-0">
                     <img
                             class="img-fluid"
-                            src="images/cardimg1.png"
+                            src="{{ des.image.url }}"
                             alt="cardimg1"
                     />
                 </div>
                 <div class="card-body">
-                    <h6 class="card-title">Latest travel restrictions</h6>
+                    <h6 class="card-title">{{ des.title }}</h6>
                     <p class="card-text">
-                        We provide information on the entry requirements for all
-                        countries so you can plan your flight smoothly
+                        {{ des.text }}
                     </p>
                     <div class="d-flex justify-content-end">
-                        <img src="images/Vector.png" alt="vector"/>
+                        <img src="{% static 'images/Vector.png' %}" alt="vector"/>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 mb-2">
-            <div class="card">
-                <div class="card-header p-0">
-                    <img
-                            class="img-fluid"
-                            src="images/cardimg2.png"
-                            alt="cardimg1"
-                    />
-                </div>
-                <div class="card-body">
-                    <h6 class="card-title">Latest travel restrictions</h6>
-                    <p class="card-text">
-                        We provide information on the entry requirements for all
-                        countries so you can plan your flight smoothly
-                    </p>
-                    <div class="d-flex justify-content-end">
-                        <img src="images/Vector.png" alt="vector"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4">
-            <div class="card">
-                <div class="card-header p-0">
-                    <img
-                            class="img-fluid"
-                            src="images/cardimg3.png"
-                            alt="cardimg1"
-                    />
-                </div>
-                <div class="card-body">
-                    <h6 class="card-title">Latest travel restrictions</h6>
-                    <p class="card-text">
-                        We provide information on the entry requirements for all
-                        countries so you can plan your flight smoothly
-                    </p>
-                    <div class="d-flex justify-content-end">
-                        <img src="images/Vector.png" alt="vector"/>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
     <h5>Cheap flights selected for you</h5>
     <p>4 routes in your area</p>

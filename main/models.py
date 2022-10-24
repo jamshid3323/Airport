@@ -17,3 +17,17 @@ class RecommendationDestinationsModel(models.Model):
         verbose_name = _('destination')
         verbose_name_plural = _('destinations')
         ordering = ('-id',)
+
+
+class DiscoverModel(models.Model):
+    image = models.ImageField(upload_to='discover/', verbose_name=_('image'))
+    title = models.CharField(max_length=30, verbose_name=_('title'))
+    text = models.TextField(verbose_name=_('text'))
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('discover')
+        verbose_name_plural = _('discovers')
+        ordering = ('-id',)
