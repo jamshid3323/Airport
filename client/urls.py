@@ -1,7 +1,7 @@
-from django.urls import path
+from django.urls import path, include
 
 app_name = 'client'
 
 urlpatterns = [
-    path('',)
+    path('', include('django.contrib.auth.urls'))
 ]

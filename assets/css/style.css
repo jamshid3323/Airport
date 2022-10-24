@@ -1,0 +1,827 @@
+
+.bg-img {
+    width: 100%;
+    margin-bottom: 350px;
+    position: relative;
+    height: 496px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.42)),
+    url("../images/bc-img.png");
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Avenir LT Std", sans-serif;
+}
+
+.logo {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 22px;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-links {
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 14px;
+    font-family: "Avenir LT Std", sans-serif;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    margin: 5px;
+}
+
+@media screen and (max-width: 1024px){
+    .nav-links {
+        width: 60%;
+    }
+}
+
+@media  screen and (max-width: 768px){
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        top: 8vh;
+        background-color: #0a58ca;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .myFormTab {
+        display: none;
+    }
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        transform: translateX(0px);
+    }
+}
+
+.login-bg-color {
+    margin-bottom: 457px;
+    position: relative;
+    height: 496px;
+    background-color: #2c5368;
+}
+
+.signup-bg-color {
+    margin-bottom: 457px;
+    position: relative;
+    height: 496px;
+    background-color: #08003a;
+}
+
+.help-bg-color {
+    position: relative;
+    height: 496px;
+    background-color: #08003a;
+}
+
+.search-box {
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    top: 40%;
+}
+
+.help-title {
+    font-family: "Avenir LT Std", sans-serif;
+    width: 100%;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+}
+
+.help-search-form {
+    width: 100%;
+}
+
+.popular-search {
+    font-family: "Avenir LT Std", sans-serif;
+    font-size: 20px;
+    line-height: 16px;
+    font-weight: 400;
+    color: white;
+    margin-top: 10px;
+}
+
+.popular-search a {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 16px;
+    color: #FFA200;
+}
+
+.help-section {
+    background-color: #f5f7ff;
+    padding: 95px 0 95px;
+    box-sizing: border-box;
+}
+
+.common-questions {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.common-questions-title {
+    font-family: "Avenir LT Std", sans-serif;
+    width: 27%;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 16px;
+    margin-right: 140px;
+}
+
+.common-questions-text {
+    width: 30%;
+    font-style: normal;
+    font-weight: 350;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.common-questions-text div {
+    margin-bottom: 20px;
+}
+
+.all-topics {
+    width: 85%;
+    margin: 75px auto 87px;
+}
+
+.all-topic-title {
+    font-family: "Avenir LT Std", sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 16px;
+}
+
+.all-topic-buttons {
+    text-align: end;
+}
+
+.all-topic-buttons div {
+    margin-bottom: 12px;
+}
+
+.all-topic-buttons div button {
+    margin-right: 8px;
+}
+
+.help-form-box {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    border-radius: 5px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.26);
+}
+
+.message-form {
+    padding: 20px 40px;
+    box-sizing: border-box;
+    width: 55%;
+    background-color: white;
+}
+
+.message-form label {
+    color: #727171;
+}
+
+.message-form input {
+    display: block;
+    width: 270px;
+    height: 40px;
+    padding-left: 8px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #F5F8FF;
+    border: 0.5px solid #727171;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.26);
+}
+
+#message {
+    width: 430px;
+    height: 181px;
+    border-radius: 5px;
+    padding: 8px 0 0 12px;
+    box-sizing: border-box;
+    background-color: #F5F8FF;
+    border: 0.5px solid #727171;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.26);
+}
+
+.contact-box {
+    width: 45%;
+    background-color: #08003a;
+    padding: 60px 0 0 70px;
+    box-sizing: border-box;
+}
+
+.message-form-title {
+    font-family: "Avenir LT Std", sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 36px;
+}
+
+.contact-box-title {
+    font-family: "Avenir LT Std", sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 36px;
+    color: white;
+}
+
+.contact-box a {
+    text-decoration: none;
+    font-family: "Avenir LT Std", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #C2CFF0;
+    margin-left: 13px;
+}
+
+.contact-email-input {
+    margin-bottom: 125px;
+}
+
+
+.my-form-tab-box {
+    display: flex;
+    justify-content: flex-end;
+}
+.title {
+    width: 550px;
+    margin-top: 10%;
+    /*margin-left: 51%;*/
+    letter-spacing: 1px;
+    display: flex;
+    align-items: flex-end;
+    font-weight: 500;
+    font-size: 48px;
+    text-align: right;
+    font-family: "Montserrat", sans-serif;
+    color: #ffffff;
+}
+
+.book-now {
+    position: absolute;
+    top: 73%;
+    /*margin: 0 auto;*/
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    color: white;
+}
+
+.login-box {
+    position: absolute;
+    top: 0;
+    left: 11%;
+    margin-top: 190px;
+    width: 78%;
+}
+
+.image-box {
+    width: 50%;
+}
+
+.input-box {
+    width: 50%;
+    background-color: #FFF8E1;
+}
+
+.login-text {
+    margin-top: 80px;
+    margin-bottom: 43px;
+}
+
+.login-text h6 {
+    color: #2D3748;
+}
+
+.email-input label {
+    color: #4E4E4E;
+}
+
+.email-input input {
+    width: 324px;
+    height: 48px;
+    margin-top: 8px;
+    outline-color: #041BD7;
+    border: 1px solid #041BD7;
+    border-radius: 5px;
+}
+
+.password-input label {
+    color: #4E4E4E;
+}
+
+.password-input input {
+    width: 324px;
+    height: 48px;
+    margin-top: 8px;
+    outline-color: #041BD7;
+    border: 1px solid #041BD7;
+    border-radius: 5px;
+}
+
+.forgot-pass {
+    color: #4E4E4E;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 85px;
+}
+
+.forgot-pass:hover {
+    color: #4E4E4E;
+}
+
+.login-btn {
+    display: block;
+    border: none;
+    width: 347px;
+    height: 50px;
+    background: #FF7100;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.continue-google {
+    width: 347px;
+    height: 50px;
+    border: 1px solid #4A4A4A;
+    border-radius: 5px;
+    background: #ECECEC;
+    color: #727171;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.continue-google img {
+    margin-right: 11px;
+}
+
+.form-signup {
+    width: 225px;
+    height: 19px;
+    font-weight: 400;
+    color: #4E4E4E
+}
+
+.form-signup a {
+    font-weight: 400;
+    color: #4E4E4E;
+    text-decoration: none;
+}
+
+.signup-box {
+    display: flex;
+    position: absolute;
+    width: 90%;
+    top: 190px;
+    left: 5%;
+}
+
+.signup-box input {
+    padding-left: 8px;
+}
+
+.signup-img-box {
+    width: 40%;
+}
+
+.signup-form-box {
+    width: 60%;
+    background-color: #FFF8E1;
+}
+
+.signup-title {
+    margin-left: 9.5%;
+}
+
+.signup-title span {
+    font-family: "Avenir LT Std", sans-serif;
+    font-weight: 400;
+    color: #000000;
+}
+
+.signup-title div {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: #1D1D1D;
+}
+
+.signup-form label {
+    font-family: "Avenir LT Std", sans-serif;
+    font-weight: 400;
+    line-height: 16px;
+    color: #4E4E4E;
+}
+
+.signup-form input {
+    width: 270px;
+    height: 48px;
+    border: 1px solid #A4A4A4;
+    border-radius: 5px;
+    outline-color: #041BD7;
+}
+
+.remember-me {
+    margin-left: 9.8%;
+}
+
+.remember-me label {
+    font-family: "Avenir LT Std", sans-serif;
+    font-weight: 400;
+}
+
+.I-agree-check {
+    margin-left: 9.8%;
+}
+
+.I-agree-check label {
+    font-family: "Avenir LT Std", sans-serif;
+    font-weight: 400;
+}
+
+.I-agree-check a {
+    text-decoration: none;
+    font-family: "Avenir LT Std", sans-serif;
+}
+
+.Already {
+    font-family: "Avenir LT Std", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: #2D3748;
+}
+
+.Already a {
+    text-decoration: none;
+}
+
+.create-account-btn {
+    display: block;
+    width: 347px;
+    height: 48px;
+    background: rgba(255, 113, 0, 0.35);
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+.myFormTab {
+    position: absolute;
+    top: 80%;
+    /*margin: 0 auto;*/
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 350px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 7px;
+    box-shadow: 2px -6px 5px 3px rgba(0, 0, 0, 0.26);
+    box-sizing: border-box;
+}
+
+.tab-content {
+    margin-top: 15px;
+}
+
+.myFormTab .nav-link {
+    border: none;
+    font-weight: 400;
+    font-size: 20px;
+    color: #4e4e4e;
+}
+
+.myFormTab .nav-link:hover {
+    color: #ff7100;
+    border-bottom: 1px solid #ff7100;
+}
+
+.myFormTab .nav-link:active {
+    color: #ff7100;
+    border-bottom: 1px solid #ff7100;
+}
+
+.airplane-icon {
+    padding: 25px 13px;
+    box-sizing: border-box;
+}
+
+.airplane-icon image {
+    width: 19px;
+    height: 20px;
+}
+
+.myFormTab .select-side input {
+    width: 244px;
+    height: 32px;
+}
+
+.myFormTab .select-side select {
+    width: 244px;
+    height: 32px;
+}
+
+.myFormTab .select-side {
+    color: #4e4e4e;
+    font-weight: 350;
+    font-size: 14px;
+}
+
+.bookBtn {
+    width: 244px;
+    height: 34px;
+    background-color: #ff7100;
+    border-radius: 3px;
+    box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.05);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    margin-top: 37px;
+}
+
+.searchBtn {
+    background-color: #ff7100;
+    border-radius: 0px 5px 5px 0px;
+    border: none;
+    width: 57px;
+    height: 54px;
+}
+
+.searchInput input {
+    height: 54px;
+}
+
+.label {
+    color: #727171;
+    margin-top: 14px;
+    opacity: 0.7;
+}
+
+.box {
+    height: 171px;
+    border-radius: 5px;
+    border: 0.5px solid #c2cff0;
+    background-color: #f5f8ff;
+}
+
+.imgBox {
+    width: 234.48px;
+    height: 171px;
+}
+
+.right-side {
+    width: 100%;
+    padding: 18px;
+}
+
+.date {
+    font-weight: 350;
+    font-size: 14px;
+    color: #727171;
+}
+
+.currency {
+    font-weight: 400;
+    font-size: 18px;
+    color: #4e4e4e;
+}
+
+.container-sm {
+    max-width: 1000px;
+}
+
+.box2 {
+    background-color: #fff8e1;
+}
+
+.box2 .currency {
+    color: #ff0000;
+}
+
+footer {
+    background-color: #c2cff0;
+    height: 323px;
+    position: relative;
+}
+
+footer ul li {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul {
+    padding-left: 0;
+}
+
+footer ul li:first-child {
+    margin-bottom: 16px;
+    margin-top: 36px;
+    font-size: 18px;
+    color: #4e4e4e;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #727171;
+}
+
+.icons {
+    display: flex;
+    width: 184px;
+    height: 23px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icons a {
+    text-decoration: none;
+    color: black;
+}
+
+.follow {
+    margin-top: 100px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #4e4e4e;
+    margin-bottom: 20px;
+}
+
+.down {
+    margin-top: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #4e4e4e;
+}
+
+.getinon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 260px;
+    height: 46px;
+}
+
+.getinon img {
+    width: 126px;
+    height: 46px;
+}
+
+#top {
+    display: none;
+    position: fixed;
+    right: 0;
+    bottom: 24%;
+    background-color: #2b42fb;
+    width: 144px;
+    height: 99px;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    padding: 21px;
+    padding-top: 30px;
+    border-radius: 5px 0px 0px 5px;
+    cursor: pointer;
+    border: none;
+}
+
+#top:hover {
+    color: white;
+}
+
+.btnEntrance {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-name: btnEntrance;
+}
+
+@keyframes btnEntrance {
+    from {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 03);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.btnExit {
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+    animation-name: btnExit;
+}
+
+@keyframes btnExit {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+}
+
+@media only screen and (min-width: 1400px){
+    /*.my-form-tab-box {*/
+    /*    padding-left: 7%;*/
+    /*}*/
+}
+
+@media only screen and (min-width: 1363px) {
+    .bg-img {
+        width: 100%;
+        height: 500px;
+        background-image: url("../images/original.jpg");
+        background-repeat: no-repeat;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    /*.my-form-tab-box {*/
+    /*    padding-left: 4%;*/
+    /*}*/
+}
+
+@media only screen and (min-width: 1170px){
+    /*.myFormTab {*/
+    /*    margin: 0 auto;*/
+    /*}*/
+    /*.my-form-tab-box {*/
+    /*    padding: 0%;*/
+    /*}*/
+}
+
+
+
+
+
+

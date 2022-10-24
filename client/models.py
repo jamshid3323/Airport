@@ -4,3 +4,5 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     photo = models.ImageField()
+    USERNAME_FIELD = "username"
+    REQUIRED_FIELDS = ["email"]
