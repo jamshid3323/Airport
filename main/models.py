@@ -31,3 +31,20 @@ class DiscoverModel(models.Model):
         verbose_name = _('discover')
         verbose_name_plural = _('discovers')
         ordering = ('-id',)
+
+
+class CheapFlightModel(models.Model):
+    image = models.ImageField(upload_to='cheap-flight/', verbose_name=_('images'))
+    where_to = models.CharField(max_length=50, verbose_name=_('where to'))
+    date = models.DateField(auto_now=False)
+    direct_flight = models.CharField(max_length=50, verbose_name=_('direct flight'))
+    company_logo = models.ImageField(upload_to='company-logo/', verbose_name=_('company logo'))
+    price = models.PositiveIntegerField(max_length=4, verbose_name=_('price'))
+
+    def __str__(self):
+        return self.where_to
+
+    class Meta:
+        verbose_name = _('cheap flight')
+        verbose_name_plural = _('cheap flights')
+        ordering = ('-id',)

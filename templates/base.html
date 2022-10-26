@@ -400,81 +400,45 @@
     <h5 class="mt-5">Discover</h5>
     <div class="row mb-5">
         {% for des in discover %}
-        <div class="col-xl-4 mb-2">
-            <div class="card">
-                <div class="card-header p-0">
-                    <img
-                            class="img-fluid"
-                            src="{{ des.image.url }}"
-                            alt="cardimg1"
-                    />
-                </div>
-                <div class="card-body">
-                    <h6 class="card-title">{{ des.title }}</h6>
-                    <p class="card-text">
-                        {{ des.text }}
-                    </p>
-                    <div class="d-flex justify-content-end">
-                        <img src="{% static 'images/Vector.png' %}" alt="vector"/>
+            <div class="col-xl-4 mb-2">
+                <div class="card">
+                    <div class="card-header p-0">
+                        <img
+                                class="img-fluid"
+                                src="{{ des.image.url }}"
+                                alt="cardimg1"
+                        />
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">{{ des.title }}</h6>
+                        <p class="card-text">
+                            {{ des.text }}
+                        </p>
+                        <div class="d-flex justify-content-end">
+                            <img src="{% static 'images/Vector.png' %}" alt="vector"/>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         {% endfor %}
     </div>
     <h5>Cheap flights selected for you</h5>
     <p>4 routes in your area</p>
     <div class="row">
-        <div class="col-xl-6 mb-3">
-            <div class="d-flex box box2">
-                <img class="imgBox" src="images/london.png" alt="london"/>
-                <div class="right-side">
-                    <h5>London</h5>
-                    <div class="date">Apr 5-8</div>
-                    <div class="date">Direct flight . 3h 15 min</div>
-                    <div class="mt-4"><img src="images/img1.png" alt="img1"/></div>
-                    <div class="d-flex justify-content-end currency">€ 35</div>
+        {% for ch in cheap %}
+            <div class="col-xl-6 mb-3">
+                <div class="d-flex box box2">
+                    <img class="imgBox" src="{{ ch.image.url }}" alt="london"/>
+                    <div class="right-side">
+                        <h5>{{ ch.title }}</h5>
+                        <div class="date">Apr {{ ch.date }}</div>
+                        <div class="date">Direct flight . {{ ch.direct_flight }}</div>
+                        <div class="mt-4"><img src="{{ ch.company_logo.url }}" alt="img1"/></div>
+                        <div class="d-flex justify-content-end currency">€ {{ ch.price }}</div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xl-6 mb-3">
-            <div class="d-flex box box2">
-                <img class="imgBox" src="images/rome.png" alt="london"/>
-                <div class="right-side">
-                    <h5>London</h5>
-                    <div class="date">Apr 5-8</div>
-                    <div class="date">Direct flight . 3h 15 min</div>
-                    <div class="mt-4"><img src="images/img2.png" alt="img1"/></div>
-                    <div class="d-flex justify-content-end currency">€ 35</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row mb-5">
-        <div class="col-xl-6 mb-3">
-            <div class="d-flex box box2">
-                <img class="imgBox" src="images/madrid.png" alt="london"/>
-                <div class="right-side">
-                    <h5>London</h5>
-                    <div class="date">Apr 5-8</div>
-                    <div class="date">Direct flight . 3h 15 min</div>
-                    <div class="mt-4"><img src="images/img3.png" alt="img1"/></div>
-                    <div class="d-flex justify-content-end currency">€ 35</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-6">
-            <div class="d-flex box box2">
-                <img class="imgBox" src="images/paris.png" alt="london"/>
-                <div class="right-side">
-                    <h5>London</h5>
-                    <div class="date">Apr 5-8</div>
-                    <div class="date">Direct flight . 3h 15 min</div>
-                    <div class="mt-4"><img src="images/img4.png" alt="img1"/></div>
-                    <div class="d-flex justify-content-end currency">€ 35</div>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 <footer>
