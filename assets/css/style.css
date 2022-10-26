@@ -15,6 +15,38 @@ nav {
     font-family: "Avenir LT Std", sans-serif;
 }
 
+.navbar-brand {
+    font-weight: 600;
+    font-size: 40px;
+    font-family: "Montserrat", sans-serif;
+    color: #ffffff;
+}
+
+.navbar-brand:hover {
+    color: white;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 20px;
+    font-family: "Avenir LT Std", sans-serif;
+    margin-right: 15px;
+}
+
+.navbar-nav .nav-link::after {
+    content: "";
+    background-color: #ffa200;
+    height: 3px;
+    width: 0;
+    display: block;
+    transition: linear 0.25s;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
 .logo {
     text-transform: uppercase;
     letter-spacing: 5px;
@@ -805,20 +837,6 @@ footer ul li a {
     }
 }
 
-@media only screen and (max-width: 1200px) {
-    /*.my-form-tab-box {*/
-    /*    padding-left: 4%;*/
-    /*}*/
-}
-
-@media only screen and (min-width: 1170px){
-    /*.myFormTab {*/
-    /*    margin: 0 auto;*/
-    /*}*/
-    /*.my-form-tab-box {*/
-    /*    padding: 0%;*/
-    /*}*/
-}
 
 
 

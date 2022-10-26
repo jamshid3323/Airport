@@ -16,26 +16,47 @@
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <header class="bg-img">
     <div class="container">
-        <nav>
-            <div class="logo">
-                <a href="{% url 'main:home' %}">Utravel</a>
+        <nav class="navbar navbar-expand-lg d-flex justify-content-between">
+            <div>
+                <a class="navbar-brand" href="#">Utravel</a>
             </div>
-            <ul class="nav-links">
-                <li><a href="">Home</a></li>
-                <li><a href="">Help</a></li>
-                <li><a href="">Log in</a></li>
-                <li><a href="">Sign up</a></li>
-                <li><a href="">Eng</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div>
+                <ul class="navbar-nav me-auto mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="help.html">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="LogIn.html"
+                        >Log in</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="SignUp.html"
+                        >Sign up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">EN</a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </div>
@@ -169,7 +190,7 @@
                     </div>
                     <div id="roundTrip" style="display: none;">
                         <div class="select-side d-flex mt-2">
-                            <div style="margin-left: 45px">
+                            <div style="margin-left: 25px">
                                 <label for="departure-round"> From </label>
                                 <select
                                         class="form-select"
@@ -182,7 +203,7 @@
                                     <option value="3">Three</option>
                                 </select>
                             </div>
-                            <div style="margin-left: 59px">
+                            <div style="margin-left: 39px">
                                 <label for="destination-round"> To </label>
                                 <select
                                         class="form-select"
@@ -521,8 +542,8 @@
             </ul>
             <h6 class="down">Download the Utravel app</h6>
             <div class="d-flex justify-content-center align-items-center getinon">
-                <img src="images/appStore.png" alt="app"/>
-                <img style="margin-bottom: 8px" src="images/googlePlay.png" alt="google"/>
+                <img src="{% static 'images/appStore.png' %}" alt="app"/>
+                <img style="margin-bottom: 8px" src="{% static 'images/googlePlay.png' %}" alt="google"/>
             </div>
         </div>
     </div>
@@ -533,5 +554,6 @@
 
 <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
