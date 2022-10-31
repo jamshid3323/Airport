@@ -1,0 +1,409 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block home %}
+    <header class="bg-img">
+        {% include 'main/header.html' %}
+
+        <div class="my-form-tab-box container">
+            <div class="title">
+                we are here for you. Worldwide
+            </div>
+
+        </div>
+
+        <div class="book-now">Book now!</div>
+
+        <div class="myFormTab">
+            <div class="nav nav-pills nav-tabs" id="nav-tab" role="tablist">
+                <button
+                        class="nav-link active"
+                        id="nav-home-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#nav-home"
+                        type="button"
+                        role="tab"
+                        aria-controls="nav-home"
+                        aria-selected="true"
+                >
+                    Buy Tickets
+                </button>
+                <button
+                        class="nav-link"
+                        id="nav-profile-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#nav-profile"
+                        type="button"
+                        role="tab"
+                        aria-controls="nav-profile"
+                        aria-selected="false"
+                >
+                    Check your flight status
+                </button>
+            </div>
+            <div class="tab-content" id="nav-tabContent">
+                <div
+                        class="tab-pane fade show active"
+                        id="nav-home"
+                        role="tabpanel"
+                        aria-labelledby="nav-home-tab"
+                >
+                    <form>
+                        <div>
+                            <input
+                                    type="checkbox"
+                                    name="oneway"
+                                    class="form-check-input"
+                                    id="oneway"
+                                    onclick="checkOne()"
+                            />
+                            <label class="me-5 ms-2" for="oneway">One way</label>
+                            <input
+                                    type="checkbox"
+                                    name="oneway"
+                                    class="form-check-input"
+                                    id="round"
+                                    onclick="checkRound()"
+                            />
+                            <label class="me-5 ms-2" for="round">Round trip</label>
+                            <input
+                                    type="checkbox"
+                                    name="oneway"
+                                    class="form-check-input"
+                                    id="multi"
+                                    onclick="checkMulti()"
+                            />
+                            <label class="me-5 ms-2" for="multi">Multi-city</label>
+                        </div>
+                        <div id="one">
+                            <div class="select-side d-flex mt-1 justify-content-between">
+                                <div class="d-flex">
+                                    <div class="airplane-icon">
+                                        <img class="img-fluid" src="images/airplane.png"
+                                             alt="">
+                                    </div>
+                                    <div>
+                                        <label for="departure-one"> From </label>
+                                        <select
+                                                class="form-select"
+                                                aria-label="Default select example"
+                                                id="departure-one"
+                                        >
+                                            <option selected>Select Departure...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="destination-one"> To </label>
+                                    <select
+                                            class="form-select"
+                                            aria-label="Default select example"
+                                            id="destination-one"
+                                    >
+                                        <option selected>Select Destination...</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                    <button type="submit" class="bookBtn">Book now!</button>
+                                </div>
+                                <div>
+                                    <label for="DepartureDate-one"> Departure date </label>
+                                    <input
+                                            type="date"
+                                            name="date"
+                                            id="DepartureDate-one"
+                                            class="form-control mb-3"
+                                    />
+                                    <label for="passenger-one"> Passengers </label>
+                                    <select
+                                            class="form-select"
+                                            aria-label="Default select example"
+                                            id="passenger-one"
+                                    >
+                                        <option selected>2 adult</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="roundTrip" style="display: none;">
+                            <div class="select-side d-flex mt-2">
+                                <div style="margin-left: 45px">
+                                    <label for="departure-round"> From </label>
+                                    <select
+                                            class="form-select"
+                                            aria-label="Default select example"
+                                            id="departure-round"
+                                    >
+                                        <option selected>Select Departure...</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div style="margin-left: 59px">
+                                    <label for="destination-round"> To </label>
+                                    <select
+                                            class="form-select"
+                                            aria-label="Default select example"
+                                            id="destination-round"
+                                    >
+                                        <option selected>Select Destination...</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="select-side d-flex mt-3">
+                                <div class="airplane-icon">
+                                    <img class="img-fluid" src="images/airplane.png"
+                                         alt="">
+                                </div>
+                                <div>
+                                    <label for="DepartureDate-round"> Departure date </label>
+                                    <input
+                                            type="date"
+                                            name="date"
+                                            id="DepartureDate-round"
+                                            class="form-control mb-3"
+                                    />
+                                </div>
+                                <div class="airplane-icon" style="margin-left: 13px">
+                                    <img class="img-fluid" src="images/airplane-replace.png"
+                                         alt="">
+                                </div>
+                                <div>
+                                    <label for="ReturnDate-round"> Return date </label>
+                                    <input
+                                            type="date"
+                                            name="date"
+                                            id="ReturnDate-round"
+                                            class="form-control mb-3"
+                                    />
+                                </div>
+                                <div style="margin-left: 37px">
+                                    <label for="passenger-round"> Passengers </label>
+                                    <select
+                                            class="form-select"
+                                            aria-label="Default select example"
+                                            id="passenger-round"
+                                    >
+                                        <option selected>2 adult</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="bookBtn">Book now!</button>
+                            </div>
+                        </div>
+                        <div id="multiCity" style="display: none;">
+                            <div class="select-side d-flex mt-1 justify-content-between">
+                                <div class="d-flex">
+                                    <div class="airplane-icon">
+                                        <img class="img-fluid" src="images/airplane.png"
+                                             alt="">
+                                    </div>
+                                    <div>
+                                        <label for="departure1"> From </label>
+                                        <select
+                                                class="form-select"
+                                                aria-label="Default select example"
+                                                id="departure1"
+                                        >
+                                            <option selected>Select Departure...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="destination1"> To </label>
+                                    <select
+                                            class="form-select"
+                                            aria-label="Default select example"
+                                            id="destination1"
+                                    >
+                                        <option selected>Select Destination...</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="DepartureDate1"> Departure date </label>
+                                    <input
+                                            type="date"
+                                            name="date"
+                                            id="DepartureDate1"
+                                            class="form-control mb-3"
+                                    />
+                                </div>
+                            </div>
+                            <div class="select-side d-flex mt-1 justify-content-between">
+                                <div class="d-flex">
+                                    <div class="airplane-icon">
+                                        <img class="img-fluid" src="images/airplane.png"
+                                             alt="">
+                                    </div>
+                                    <div>
+                                        <label id="test" for="departure"> From </label>
+                                        <select
+                                                class="form-select"
+                                                aria-label="Default select example"
+                                                id="departure"
+                                        >
+                                            <option selected>Select Departure...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="destination"> To </label>
+                                    <select
+                                            class="form-select"
+                                            aria-label="Default select example"
+                                            id="destination"
+                                    >
+                                        <option selected>Select Destination...</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                    <button type="submit" class="bookBtn">Book now!</button>
+                                </div>
+                                <div>
+                                    <label for="DepartureDate"> Departure date </label>
+                                    <input
+                                            type="date"
+                                            name="date"
+                                            id="DepartureDate"
+                                            class="form-control mb-3"
+                                    />
+                                    <label for="passenger"> Passengers </label>
+                                    <select
+                                            class="form-select"
+                                            aria-label="Default select example"
+                                            id="passenger"
+                                    >
+                                        <option selected>2 adult</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div
+                        class="tab-pane fade"
+                        id="nav-profile"
+                        role="tabpanel"
+                        aria-labelledby="nav-profile-tab"
+                >
+                    <div class="searchInput d-flex">
+                        <input
+                                class="form-control"
+                                placeholder="Search"
+                                type="search"
+                                name="item"
+                                id="item"
+                        />
+                        <button class="searchBtn">
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="white"
+                                    class="bi bi-search"
+                                    viewBox="0 0 16 16"
+                            >
+                                <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <label for="item"><i class="label">No flight selected</i></label>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container container-sm">
+        <h5>Traveling from your location</h5>
+        <p>round trip-one passenger</p>
+        <div class="row abc">
+            {% for obj in object_list %}
+                <div class="col-xl-6 mt-3">
+                    <div class="d-flex box">
+                        <img class="imgBox" src="{{ obj.image.url }}" alt="london"/>
+                        <div class="right-side">
+                            <h5>{{ obj.where_to }}</h5>
+                            <div class="date">{{ obj.date }}</div>
+                            <div class="date">Direct flight . {{ obj.direct_flight }}</div>
+                            <div class="mt-4"><img src="{{ obj.company_logo.url }}" alt="img1"/></div>
+                            <div class="d-flex justify-content-end currency">€ {{ obj.price }}</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <h5 class="mt-5">Discover</h5>
+        <div class="row mb-5">
+            {% for des in discover %}
+                <div class="col-xl-4 mb-2">
+                    <div class="card">
+                        <div class="card-header p-0">
+                            <img
+                                    class="img-fluid"
+                                    src="{{ des.image.url }}"
+                                    alt="cardimg1"
+                            />
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">{{ des.title }}</h6>
+                            <p class="card-text">
+                                {{ des.text }}
+                            </p>
+                            <div class="d-flex justify-content-end">
+                                <img src="{% static 'images/Vector.png' %}" alt="vector"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <h5>Cheap flights selected for you</h5>
+        <p>4 routes in your area</p>
+        <div class="row">
+            {% for ch in cheap %}
+                <div class="col-xl-6 mb-3">
+                    <div class="d-flex box box2">
+                        <img class="imgBox" src="{{ ch.image.url }}" alt="london"/>
+                        <div class="right-side">
+                            <h5>{{ ch.title }}</h5>
+                            <div class="date">Apr {{ ch.date }}</div>
+                            <div class="date">Direct flight . {{ ch.direct_flight }}</div>
+                            <div class="mt-4"><img src="{{ ch.company_logo.url }}" alt="img1"/></div>
+                            <div class="d-flex justify-content-end currency">€ {{ ch.price }}</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

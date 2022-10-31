@@ -1,12 +1,16 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .models import RecommendationDestinationsModel
-from django.views.generic import ListView
-from .models import RecommendationDestinationsModel, DiscoverModel, CheapFlightModel
+from main.models import RecommendationDestinationsModel
+from django.views.generic import ListView, TemplateView
+from main.models import RecommendationDestinationsModel, DiscoverModel, CheapFlightModel
+
+
+class HelpTemplateView(TemplateView):
+    template_name = 'layouts/help.html'
 
 
 class DestinationListView(ListView):
-    template_name = 'base.html'
+    template_name = 'layouts/home.html'
 
     def get_queryset(self):
         qs = RecommendationDestinationsModel.objects.filter()[:4]

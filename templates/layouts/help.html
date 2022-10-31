@@ -1,0 +1,125 @@
+{% extends 'layouts/base.html' %}
+{% block help %}
+    <header class="help-bg-color">
+        {% include 'main/header.html' %}
+    </header>
+
+    <div class="d-flex flex-column align-items-center search-box">
+        <div class="help-title">
+            Welcome! How can we help?
+        </div>
+        <form action="" class="help-search-form">
+            <div class="searchInput d-flex">
+                <input class="form-control" placeholder="Search" type="search">
+                <button class="searchBtn">
+                    <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="white"
+                            class="bi bi-search"
+                            viewBox="0 0 16 16"
+                    >
+                        <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                        />
+                    </svg>
+                </button>
+            </div>
+        </form>
+        <div class="popular-search">
+            Popular searches:
+            <a href="#">Check out</a>
+            <a href="#">Map</a>
+            <a href="#">Card information</a>
+        </div>
+    </div>
+    <section class="help-section">
+        <div class="row common-questions container">
+            <div class="col-4 common-questions-title">Common Questions</div>
+            <div class="col-4 common-questions-text">
+                <div>How can I cancel my flight ticket?</div>
+                <div>How can I submit a claim?</div>
+                <div>I had almost finished the booking when I received the message "Session Expired". What does it mean?
+                </div>
+                <div>When is my booking confirmed?</div>
+                <div>I have entered wrong details of my travel documents during online check-in. What shall I do?</div>
+            </div>
+            <div class="col-4 common-questions-text">
+                <div>How can I check if the transaction has been completed?</div>
+                <div>Is it safe to book a ticket online?</div>
+                <div>I had almost finished the booking when I received the message "Session Expired". What does it mean?
+                </div>
+                <div>How can I travel with my child?</div>
+                <div>Does my small child need to be checked in?</div>
+            </div>
+        </div>
+        <div class="row all-topics container">
+            <div class="col-3 all-topic-title">All topics</div>
+            <div class="col-9 all-topic-buttons">
+                <div>
+                    <button type="button" class="btn btn-outline-primary" disabled>Group bookings</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>Live flight status</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>Covid information Hub</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>Check out process</button>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-outline-primary" disabled>Travel information</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>Prices and discounts</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>About us</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>Contact us</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>Visa</button>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-outline-primary" disabled>Mobile app</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>Check out process</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>Airlines</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>Visa</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>Live flight status</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>About us</button>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-outline-primary" disabled>Check out process</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>Group bookings</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>Live flight status</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>About us</button>
+                    <button type="button" class="btn btn-outline-primary" disabled>Mobile app</button>
+                </div>
+            </div>
+        </div>
+        <div class="help-form-box">
+            <form class="message-form">
+                <div class="message-form-title">
+                    Didn’t find what you are looking for ?
+                    Write us a question
+                </div>
+                <div class="mt-2 mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="example@gmail.com">
+                </div>
+                <div class="mb-4">
+                    <label for="message">Message</label>
+                    <textarea type="text" id="message" placeholder="Your message"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary">Submit <img class="ms-1" src="images/submit.png"></button>
+            </form>
+            <div class="contact-box">
+                <div class="contact-box-title">
+                    Contact information
+                </div>
+                <div class="mt-5">
+                    <img src="images/phone.png">
+                    <a href="#">(800) 900 200 300</a>
+                </div>
+                <div class="mt-3 contact-email-input">
+                    <img src="images/email-form.png" alt="">
+                    <a href="#">contact@utravel.com</a>
+                </div>
+                <a href="#"><img class="me-4" src="images/facebook-form.png" alt=""></a>
+                <a href="#"><img class="me-4" src="images/instagram-form.png" alt=""></a>
+                <a href="#"><img src="images/linkedin-form.png" alt=""></a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
