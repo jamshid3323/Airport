@@ -18,13 +18,23 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
 </head>
 <body>
+
 {% block home %}
+
 {% endblock %}
-{% block help %}{% endblock %}
+
+{% block help %}
+
+{% endblock %}
+
+{% block login %}
+
+{% endblock %}
+
 {% include 'main/footer.html' %}
 
 <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+{#<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>#}
 </body>
 </html>

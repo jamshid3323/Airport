@@ -89,13 +89,13 @@ nav {
     margin: 5px;
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
     .nav-links {
         width: 60%;
     }
 }
 
-@media  screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
     body {
         overflow-x: hidden;
     }
@@ -131,11 +131,11 @@ nav {
 }
 
 @keyframes navLinkFade {
-    from{
+    from {
         opacity: 0;
         transform: translateX(50px);
     }
-    to{
+    to {
         transform: translateX(0px);
     }
 }
@@ -337,6 +337,7 @@ nav {
     display: flex;
     justify-content: flex-end;
 }
+
 .title {
     width: 550px;
     margin-top: 10%;
@@ -822,7 +823,7 @@ footer ul li a {
     }
 }
 
-@media only screen and (min-width: 1400px){
+@media only screen and (min-width: 1400px) {
     /*.my-form-tab-box {*/
     /*    padding-left: 7%;*/
     /*}*/

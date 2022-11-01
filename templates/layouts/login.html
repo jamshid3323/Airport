@@ -1,0 +1,47 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block login %}
+    <header class="login-bg-color">
+        {% include 'main/header.html' %}
+    </header>
+
+    <div class="login-box d-flex">
+        <div class="image-box">
+            <img class="img-fluid" src="{% static 'images/login_box.png' %}" alt="">
+        </div>
+        <div class="input-box">
+            <div class="login-text d-flex flex-column align-items-center">
+                <div>
+                    Welcome back
+                </div>
+                <h2>Login to your account</h2>
+            </div>
+            <form class="d-flex flex-column align-items-center" action="">
+                <div class="email-input mb-4">
+                    <label for="Email">E-Mail</label>
+                    <input class="d-block" type="email" id="Email">
+                </div>
+                <div class="password-input">
+                    <label for="Password">Password</label>
+                    <input class="d-block" type="password" id="Password">
+                </div>
+                <div class="check-and-forgot mt-3 mb-3">
+                    <input type="checkbox" id="Remember me">
+                    <label for="Remember me">Remember me</label>
+                    <a class="forgot-pass" href="#">Forgot password?</a>
+                </div>
+
+                <button class="login-btn mb-3" type="submit">Login now</button>
+                <button class="continue-google">
+                    <img src="{% static 'images/google-icon.png' %}" alt="">
+                    Continue with Google
+                </button>
+                <div class="form-signup mt-1">
+                    Don't have an account?
+                    <a href="signup.html">Sign up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
