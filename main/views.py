@@ -5,6 +5,10 @@ from django.views.generic import ListView, TemplateView
 from main.models import RecommendationDestinationsModel, DiscoverModel, CheapFlightModel
 
 
+class SignUpTemplateView(TemplateView):
+    template_name = 'layouts/signup.html'
+
+
 class LoginTemplateView(TemplateView):
     template_name = 'layouts/login.html'
 
