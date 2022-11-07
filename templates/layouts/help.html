@@ -89,20 +89,21 @@
             </div>
         </div>
         <div class="help-form-box">
-            <form class="message-form">
+            <form method="post" action="{% url 'main:message' %}" class="message-form">
+                {% csrf_token %}
                 <div class="message-form-title">
                     Didn’t find what you are looking for ?
                     Write us a question
                 </div>
                 <div class="mt-2 mb-3">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="example@gmail.com">
+                    <input name="email" type="email" id="email" placeholder="example@gmail.com">
                 </div>
                 <div class="mb-4">
                     <label for="message">Message</label>
-                    <textarea type="text" id="message" placeholder="Your message"></textarea>
+                    <textarea name="text" type="text" id="message" placeholder="Your message"></textarea>
                 </div>
-                <button type="button" class="btn btn-primary">Submit <img class="ms-1"
+                <button type="submit" class="btn btn-primary">Submit <img class="ms-1"
                                                                           src="{% static 'images/submit.png' %}">
                 </button>
             </form>

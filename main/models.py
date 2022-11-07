@@ -48,3 +48,17 @@ class CheapFlightModel(models.Model):
         verbose_name = _('cheap flight')
         verbose_name_plural = _('cheap flights')
         ordering = ('-id',)
+
+
+class MessageModel(models.Model):
+    email = models.EmailField(verbose_name=_('email'))
+    text = models.TextField(verbose_name=_('text'))
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
+
+    class Meta:
+        verbose_name = _('message')
+        verbose_name_plural = _('messages')
+        ordering = ('-id',)

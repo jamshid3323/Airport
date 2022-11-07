@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.views.generic import TemplateView
 from main.models import RecommendationDestinationsModel
-from django.views.generic import ListView, TemplateView
+from django.views.generic import ListView, TemplateView, CreateView
 from main.models import RecommendationDestinationsModel, DiscoverModel, CheapFlightModel
-
+from .forms import MessageModelForm
+from .models import MessageModel
 
 class SignUpTemplateView(TemplateView):
     template_name = 'layouts/signup.html'
@@ -29,3 +30,12 @@ class DestinationListView(ListView):
         data['discover'] = DiscoverModel.objects.filter()[:3]
         data['cheap'] = CheapFlightModel.objects.filter()[:4]
         return data
+
+
+class MessageView(CreateView):
+    model = MessageModel
+    form_class = MessageModelForm
+    template_name = 'layouts/help.html'
+
+    def get_success_url(self):
+        return reverse("main:message")
