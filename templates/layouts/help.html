@@ -89,7 +89,7 @@
             </div>
         </div>
         <div class="help-form-box">
-            <form method="post" action="{% url 'main:message' %}" class="message-form">
+            <form action="{% url 'main:message' %}" method="post" class="message-form">
                 {% csrf_token %}
                 <div class="message-form-title">
                     Didn’t find what you are looking for ?

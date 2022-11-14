@@ -5,6 +5,10 @@ from django.views.generic import ListView, TemplateView, CreateView
 from main.models import RecommendationDestinationsModel, DiscoverModel, CheapFlightModel
 from .forms import MessageModelForm
 from .models import MessageModel
+from django.core.mail import send_mail
+from django.conf.global_settings import EMAIL_HOST_USER
+from .utils import send_bot_message
+
 
 class SignUpTemplateView(TemplateView):
     template_name = 'layouts/signup.html'
@@ -39,3 +43,12 @@ class MessageView(CreateView):
 
     def get_success_url(self):
         return reverse("main:message")
+
+    def form_invalid(self, form):
+        return super().form_invalid(form)
+
+    def form_valid(self, form):
+        # message = f"Assalomu alaykum {form.instance.email} foydalanuvchisi ! Xabaringiz qabul qilindi."
+        # send_mail('Xayrli kun', message, EMAIL_HOST_USER, [form.instance.email])
+        send_bot_message(form.cleaned_data)
+        return super().form_valid(form)

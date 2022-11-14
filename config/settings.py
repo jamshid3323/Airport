@@ -105,6 +105,9 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 
+BOT_TOKEN = config('BOT_TOKEN')
+BOT_ADMIN_ID = config('BOT_ADMIN_ID')
+
 try:
     from .local_settings import *
 except ImportError:
