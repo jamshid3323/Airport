@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.core.validators import EmailValidator
 
 
 class RecommendationDestinationsModel(models.Model):
@@ -51,7 +52,7 @@ class CheapFlightModel(models.Model):
 
 
 class MessageModel(models.Model):
-    email = models.EmailField(verbose_name=_('email'))
+    email = models.EmailField(verbose_name=_('email'), validators=[EmailValidator()])
     text = models.TextField(verbose_name=_('text'))
     created_at = models.DateTimeField(auto_now_add=True)
 
