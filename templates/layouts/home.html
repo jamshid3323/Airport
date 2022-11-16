@@ -1,5 +1,5 @@
 {% extends 'layouts/base.html' %}
-{% load static %}
+{% load static my_tags%}
 {% block home %}
     <header class="bg-img">
         {% include 'main/header.html' %}
@@ -114,6 +114,7 @@
                                     <input
                                             type="date"
                                             name="date"
+                                            min="{% get_today %}"
                                             id="DepartureDate-one"
                                             class="form-control mb-3"
                                     />
@@ -170,6 +171,7 @@
                                     <input
                                             type="date"
                                             name="date"
+                                            min="{% get_today %}"
                                             id="DepartureDate-round"
                                             class="form-control mb-3"
                                     />
@@ -183,6 +185,7 @@
                                     <input
                                             type="date"
                                             name="date"
+                                            min="{% get_today %}"
                                             id="ReturnDate-round"
                                             class="form-control mb-3"
                                     />
@@ -244,6 +247,7 @@
                                     <input
                                             type="date"
                                             name="date"
+                                            min="{% get_today %}"
                                             id="DepartureDate1"
                                             class="form-control mb-3"
                                     />
@@ -288,6 +292,7 @@
                                     <input
                                             type="date"
                                             name="date"
+                                            min="{% get_today %}"
                                             id="DepartureDate"
                                             class="form-control mb-3"
                                     />
