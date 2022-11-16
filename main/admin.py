@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import RecommendationDestinationsModel, DiscoverModel, CheapFlightModel, MessageModel
+from .models import *
 
 
 @admin.register(DiscoverModel)
@@ -24,3 +24,9 @@ class CheapFlightModelAdmin(admin.ModelAdmin):
 class MessageModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'email']
     list_display_links = ['id', 'email']
+
+
+@admin.register(AirCompanyModel)
+class AirCompanyModelAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name']
+    list_display_links = ['id', 'name']

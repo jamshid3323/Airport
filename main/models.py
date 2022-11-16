@@ -63,3 +63,16 @@ class MessageModel(models.Model):
         verbose_name = _('message')
         verbose_name_plural = _('messages')
         ordering = ('-id',)
+
+
+class AirCompanyModel(models.Model):
+    image = models.ImageField(upload_to='air-company/', verbose_name=_('image of air companies'))
+    name = models.CharField(max_length=50, verbose_name=_('name of air companies'))
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _('air company')
+        verbose_name_plural = _('air companies')
+        ordering = ('-id',)
