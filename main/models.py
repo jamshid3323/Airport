@@ -76,3 +76,15 @@ class AirCompanyModel(models.Model):
         verbose_name = _('air company')
         verbose_name_plural = _('air companies')
         ordering = ('-id',)
+
+
+class TerminalModel(models.Model):
+    name = models.CharField(max_length=3, verbose_name=_('name of terminal'))
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _('terminal')
+        verbose_name_plural = _('terminals')
+        ordering = ('-id',)
