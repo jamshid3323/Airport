@@ -9,7 +9,7 @@ class RecommendationDestinationsModel(models.Model):
     date = models.DateField(auto_now=False)
     direct_flight = models.CharField(max_length=50, verbose_name=_('direct flight'))
     company_logo = models.ImageField(upload_to='company-logo/', verbose_name=_('company logo'))
-    price = models.PositiveIntegerField(max_length=4, verbose_name=_('price'))
+    price = models.PositiveIntegerField(verbose_name=_('price'))
 
     def __str__(self):
         return self.where_to
@@ -40,7 +40,7 @@ class CheapFlightModel(models.Model):
     date = models.DateField(auto_now=False)
     direct_flight = models.CharField(max_length=50, verbose_name=_('direct flight'))
     company_logo = models.ImageField(upload_to='company-logo/', verbose_name=_('company logo'))
-    price = models.PositiveIntegerField(max_length=4, verbose_name=_('price'))
+    price = models.PositiveIntegerField(verbose_name=_('price'))
 
     def __str__(self):
         return self.where_to
@@ -87,4 +87,16 @@ class TerminalModel(models.Model):
     class Meta:
         verbose_name = _('terminal')
         verbose_name_plural = _('terminals')
+        ordering = ('-id',)
+
+
+class FlightPlaceModel(models.Model):
+    destination = models.CharField(max_length=60, verbose_name=_('destination'))
+
+    def __str__(self):
+        return self.destination
+
+    class Meta:
+        verbose_name = _('destination')
+        verbose_name_plural = _('destinations')
         ordering = ('-id',)

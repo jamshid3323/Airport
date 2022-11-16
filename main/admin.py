@@ -36,3 +36,9 @@ class AirCompanyModelAdmin(admin.ModelAdmin):
 class TerminalModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
     list_display_links = ['id', 'name']
+
+
+@admin.register(FlightPlaceModel)
+class FlightModelAdmin(admin.ModelAdmin):
+    list_display = ['id', 'destination']
+    list_display_links = ['id', 'destination']
