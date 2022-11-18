@@ -97,6 +97,6 @@ class FlightPlaceModel(models.Model):
         return self.destination
 
     class Meta:
-        verbose_name = _('destination')
-        verbose_name_plural = _('destinations')
+        verbose_name = _('flight destination')
+        verbose_name_plural = _('flight destinations')
         ordering = ('-id',)

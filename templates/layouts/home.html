@@ -1,5 +1,5 @@
 {% extends 'layouts/base.html' %}
-{% load static my_tags%}
+{% load static my_tags %}
 {% block home %}
     <header class="bg-img">
         {% include 'main/header.html' %}
@@ -24,6 +24,7 @@
                         role="tab"
                         aria-controls="nav-home"
                         aria-selected="true"
+                        onclick="flight();"
                 >
                     Buy Tickets
                 </button>
@@ -36,6 +37,7 @@
                         role="tab"
                         aria-controls="nav-profile"
                         aria-selected="false"
+                        onclick="flightList();"
                 >
                     Check your flight status
                 </button>
@@ -342,6 +344,7 @@
                         </button>
                     </div>
                     <label for="item"><i class="label">No flight selected</i></label>
+
                 </div>
             </div>
         </div>
@@ -366,6 +369,38 @@
                 </div>
             {% endfor %}
         </div>
+        <div id="flight-table" style="display: none">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
         <h5 class="mt-5">Discover</h5>
         <div class="row mb-5">
             {% for des in discover %}
@@ -391,23 +426,25 @@
                 </div>
             {% endfor %}
         </div>
-        <h5>Cheap flights selected for you</h5>
-        <p>4 routes in your area</p>
-        <div class="row">
-            {% for ch in cheap %}
-                <div class="col-xl-6 mb-3">
-                    <div class="d-flex box box2">
-                        <img class="imgBox" src="{{ ch.image.url }}" alt="london"/>
-                        <div class="right-side">
-                            <h5>{{ ch.title }}</h5>
-                            <div class="date">Apr {{ ch.date }}</div>
-                            <div class="date">Direct flight . {{ ch.direct_flight }}</div>
-                            <div class="mt-4"><img src="{{ ch.company_logo.url }}" alt="img1"/></div>
-                            <div class="d-flex justify-content-end currency">€ {{ ch.price }}</div>
+        <div id="cheap-flight">
+            <h5>Cheap flights selected for you</h5>
+            <p>4 routes in your area</p>
+            <div class="row">
+                {% for ch in cheap %}
+                    <div class="col-xl-6 mb-3">
+                        <div class="d-flex box box2">
+                            <img class="imgBox" src="{{ ch.image.url }}" alt="london"/>
+                            <div class="right-side">
+                                <h5>{{ ch.title }}</h5>
+                                <div class="date">Apr {{ ch.date }}</div>
+                                <div class="date">Direct flight . {{ ch.direct_flight }}</div>
+                                <div class="mt-4"><img src="{{ ch.company_logo.url }}" alt="img1"/></div>
+                                <div class="d-flex justify-content-end currency">€ {{ ch.price }}</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

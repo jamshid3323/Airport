@@ -24,6 +24,7 @@ function backToTop() {
     window.scrollTo(0, 0);
 }
 
+
 function checkOne() {
     var one = document.getElementById("oneway");
     var multi = document.getElementById("multi");
@@ -84,4 +85,15 @@ function checkMulti() {
     } else {
         input.style.display = "none";
     }
+}
+
+var table = document.getElementById('flight-table');
+var cheap = document.getElementById('cheap-flight');
+function flightList() {
+    table.style.display = 'block';
+    cheap.style.display = 'none';
+}
+function flight() {
+    table.style.display = 'none';
+    cheap.style.display = 'block';
 }
