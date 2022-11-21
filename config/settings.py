@@ -86,6 +86,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
@@ -107,6 +108,8 @@ EMAIL_PORT = 587
 
 BOT_TOKEN = config('BOT_TOKEN')
 BOT_ADMIN_ID = config('BOT_ADMIN_ID')
+
+
 
 try:
     from .local_settings import *

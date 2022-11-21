@@ -4,7 +4,7 @@ from main.models import RecommendationDestinationsModel
 from django.views.generic import ListView, TemplateView, CreateView
 from main.models import RecommendationDestinationsModel, DiscoverModel, CheapFlightModel
 from .forms import MessageModelForm
-from .models import MessageModel
+from .models import MessageModel, FlightModel
 from django.core.mail import send_mail
 from django.conf.global_settings import EMAIL_HOST_USER
 from .utils import send_bot_message
@@ -33,6 +33,7 @@ class DestinationListView(ListView):
         data = super().get_context_data()
         data['discover'] = DiscoverModel.objects.filter()[:3]
         data['cheap'] = CheapFlightModel.objects.filter()[:4]
+        data['flight'] = FlightModel.objects.all()
         return data
 
 

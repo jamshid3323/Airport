@@ -1,6 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import EmailValidator
+import uuid
+from django.core.exceptions import ValidationError
+from .helpers import res
 
 
 class RecommendationDestinationsModel(models.Model):
@@ -90,13 +93,35 @@ class TerminalModel(models.Model):
         ordering = ('-id',)
 
 
-class FlightPlaceModel(models.Model):
-    destination = models.CharField(max_length=60, verbose_name=_('destination'))
+class CityModel(models.Model):
+    name = models.CharField(max_length=50, verbose_name=_('city name'))
 
     def __str__(self):
-        return self.destination
+        return self.name
 
     class Meta:
-        verbose_name = _('flight destination')
-        verbose_name_plural = _('flight destinations')
+        verbose_name = _('city')
+        verbose_name_plural = _('cities')
         ordering = ('-id',)
+
+
+class FlightModel(models.Model):
+    flight_from = models.ForeignKey(CityModel, on_delete=models.RESTRICT, verbose_name=_('from'),
+                                    related_name='flight_from')
+    to = models.ForeignKey(CityModel, on_delete=models.RESTRICT, verbose_name=_('to'), related_name='to')
+    date = models.DateField(verbose_name=_('date'))
+    time = models.TimeField(verbose_name=_('time'))
+    series = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name=_('series'))
+    gate = models.CharField(max_length=3, verbose_name=_('gate'))
+    company = models.ForeignKey(AirCompanyModel, on_delete=models.RESTRICT, related_name='company')
+    terminal = models.ForeignKey(TerminalModel, on_delete=models.RESTRICT, related_name='terminal')
+
+    class Meta:
+        verbose_name = _('flight')
+        verbose_name_plural = _('flights')
+
+    # def save(self, *args, **kwargs):
+    #     if FlightModel.objects.count() > int(self.gate):
+    #         return
+    #     super(FlightModel, self).save(*args, **kwargs)
+

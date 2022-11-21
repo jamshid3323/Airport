@@ -38,7 +38,13 @@ class TerminalModelAdmin(admin.ModelAdmin):
     list_display_links = ['id', 'name']
 
 
-@admin.register(FlightPlaceModel)
+@admin.register(CityModel)
+class CityModelAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name']
+    list_display_links = ['id', 'name']
+
+
+@admin.register(FlightModel)
 class FlightModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'destination']
-    list_display_links = ['id', 'destination']
+    list_display = ['series', 'flight_from', 'to', 'time', 'date', 'gate', 'company', 'terminal']
+    list_display_links = ['series']
