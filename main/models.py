@@ -106,6 +106,14 @@ class CityModel(models.Model):
 
 
 class FlightModel(models.Model):
+    STATUS = (
+        (1, _('On time')),
+        (2, _('Delayed'))
+    )
+    LIVE_STATUS = (
+        (1, _('On air')),
+        (2, _('In block'))
+    )
     flight_from = models.ForeignKey(CityModel, on_delete=models.RESTRICT, verbose_name=_('from'),
                                     related_name='flight_from')
     to = models.ForeignKey(CityModel, on_delete=models.RESTRICT, verbose_name=_('to'), related_name='to')
@@ -113,6 +121,8 @@ class FlightModel(models.Model):
     time = models.TimeField(verbose_name=_('time'))
     series = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name=_('series'))
     gate = models.CharField(max_length=3, verbose_name=_('gate'))
+    status = models.PositiveIntegerField(choices=STATUS, default=1, verbose_name=_('status'))
+    live_status = models.PositiveIntegerField(choices=LIVE_STATUS, default=2, verbose_name=_('live status'))
     company = models.ForeignKey(AirCompanyModel, on_delete=models.RESTRICT, related_name='company')
     terminal = models.ForeignKey(TerminalModel, on_delete=models.RESTRICT, related_name='terminal')
 
