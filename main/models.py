@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import EmailValidator
 import uuid
-from django.core.exceptions import ValidationError
+from config.validators import today_validate
 from .helpers import res
 
 
@@ -117,9 +117,9 @@ class FlightModel(models.Model):
     flight_from = models.ForeignKey(CityModel, on_delete=models.RESTRICT, verbose_name=_('from'),
                                     related_name='flight_from')
     to = models.ForeignKey(CityModel, on_delete=models.RESTRICT, verbose_name=_('to'), related_name='to')
-    date = models.DateField(verbose_name=_('date'))
+    date = models.DateField(verbose_name=_('date'), validators=[today_validate])
     time = models.TimeField(verbose_name=_('time'))
-    series = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name=_('series'))
+    series = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=True, verbose_name=_('series'))
     gate = models.CharField(max_length=3, verbose_name=_('gate'))
     status = models.PositiveIntegerField(choices=STATUS, default=1, verbose_name=_('status'))
     live_status = models.PositiveIntegerField(choices=LIVE_STATUS, default=2, verbose_name=_('live status'))
@@ -134,4 +134,3 @@ class FlightModel(models.Model):
     #     if FlightModel.objects.count() > int(self.gate):
     #         return
     #     super(FlightModel, self).save(*args, **kwargs)
-

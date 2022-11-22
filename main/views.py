@@ -1,9 +1,9 @@
 from django.shortcuts import render, reverse
 from django.views.generic import TemplateView
 from main.models import RecommendationDestinationsModel
-from django.views.generic import ListView, TemplateView, CreateView
+from django.views.generic import ListView, TemplateView, CreateView, DetailView
 from main.models import RecommendationDestinationsModel, DiscoverModel, CheapFlightModel
-from .forms import MessageModelForm
+from .forms import MessageModelForm, SearchModelForm
 from .models import MessageModel, FlightModel
 from django.core.mail import send_mail
 from django.conf.global_settings import EMAIL_HOST_USER
@@ -53,3 +53,8 @@ class MessageView(CreateView):
         # send_mail('Xayrli kun', message, EMAIL_HOST_USER, [form.instance.email])
         send_bot_message(form.cleaned_data)
         return super().form_valid(form)
+
+
+# class FlightSearchView(DetailView):
+#
+#     queryset = FlightModel.objects.filter(series=SearchModelForm.series)
