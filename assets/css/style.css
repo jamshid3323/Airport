@@ -728,6 +728,24 @@ footer ul li a {
     color: #727171;
 }
 
+.on-time {
+    width: 80px;
+    height: 25px;
+    background-color: lawngreen;
+    border-radius: 30px;
+    color: white;
+    text-align: center;
+}
+
+.delayed {
+    width: 80px;
+    height: 25px;
+    background-color: #FFA200;
+    border-radius: 30px;
+    color: white;
+    text-align: center;
+}
+
 .icons {
     display: flex;
     width: 184px;

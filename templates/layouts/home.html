@@ -314,7 +314,7 @@
                         </div>
                     </form>
                 </div>
-                <div
+                <form
                         class="tab-pane fade"
                         id="nav-profile"
                         role="tabpanel"
@@ -325,8 +325,9 @@
                                 class="form-control"
                                 placeholder="Search"
                                 type="search"
-                                name="item"
+                                name="status"
                                 id="item"
+                                value="{{ status }}"
                         />
                         <button class="searchBtn">
                             <svg
@@ -343,9 +344,49 @@
                             </svg>
                         </button>
                     </div>
-                    <label for="item"><i class="label">No flight selected</i></label>
+                    {% if not detail %}
+                        <label for="item"><i class="label">No flight selected</i></label>
+                    {% else %}
 
-                </div>
+                        <table class="table table-striped mt-3">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    Departure to <strong>{{ detail.to }}</strong>
+                                    <img style="margin-left: 10px;" src="{% static 'images/airplane.png' %}" alt="">
+                                    <br>
+                                    <strong>{{ detail.date.today }}</strong><br>
+                                    <img src="{{ detail.company.image.url }}" alt="">
+                                </td>
+                                <td>
+                                    <strong>Arrival time</strong> <br>
+                                    {{ detail.time }}
+                                    {% if detail.status == 1 %}
+                                        <div class="on-time">On time</div>
+                                    {% elif detail.status == 2 %}
+                                        <div class="delayed">Delayed</div>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Gate</strong><br>
+                                    <span>{{ detail.gate }}</span>
+                                </td>
+                                <td>
+                                    <strong>Live status</strong><br>
+                                    {% if detail.live_status == 1 %}
+                                        <span>On air</span>
+                                    {% elif detail.live_status == 2 %}
+                                        <span>In block</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    {% endif %}
+                </form>
+
             </div>
         </div>
     </header>
