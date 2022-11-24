@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse
 from django.views.generic import TemplateView
-from main.models import RecommendationDestinationsModel
+from main.models import RecommendationDestinationsModel, CityModel
 from django.views.generic import ListView, TemplateView, CreateView, DetailView
 from main.models import RecommendationDestinationsModel, DiscoverModel, CheapFlightModel
 from .forms import MessageModelForm
@@ -26,7 +26,6 @@ class DestinationListView(ListView):
     template_name = 'layouts/home.html'
 
     def get_queryset(self):
-        status = self.request.GET.get('status')
         qs = RecommendationDestinationsModel.objects.filter()[:4]
         return qs
 
@@ -35,6 +34,7 @@ class DestinationListView(ListView):
         data['discover'] = DiscoverModel.objects.filter()[:3]
         data['cheap'] = CheapFlightModel.objects.filter()[:4]
         data['flight'] = FlightModel.objects.all()
+        data['city'] = CityModel.objects.all()
         s = self.request.GET.get('status')
         if s:
             data['status'] = s
