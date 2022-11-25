@@ -10,3 +10,9 @@ today = date.today()
 def get_today():
     d = today.strftime("%Y-%m-%d")
     return d
+
+
+@register.simple_tag()
+def max_age():
+    y = today.year - 18
+    return f"{y}-{today.month}-{today.day}"

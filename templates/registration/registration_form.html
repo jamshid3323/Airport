@@ -1,5 +1,7 @@
-{% extends 'layouts/base.html' %}
-{% load static %}
+{% extends "registration/registration_base.html" %}
+{% load i18n static my_tags%}
+
+
 {% block signup %}
 <header class="signup-bg-color">
     {% include 'main/header.html' %}
@@ -9,6 +11,7 @@
         <img class="img-fluid" src="{% static 'images/signup_box.png' %}" alt="">
     </div>
     <form class="signup-form-box">
+        {% csrf_token %}
         <div class="signup-title mt-3">
             <span>
                 Welcome to Utravel
@@ -19,29 +22,29 @@
             <div>
                 <div>
                     <label for="firstname">First name</label>
-                    <input class="d-block" type="text" id="firstname" placeholder="first name">
+                    <input class="d-block" name="first_name" type="text" id="firstname" placeholder="first name">
                 </div>
                 <div class="mt-2 mb-2">
                     <label for="E-mail">E-Mail</label>
-                    <input class="d-block" type="email" id="E-mail" placeholder="your.email@gmail.com">
+                    <input class="d-block" name="email" type="email" id="E-mail" placeholder="your.email@gmail.com">
                 </div>
                 <div>
                     <label for="password">Password</label>
-                    <input class="d-block" type="password" id="password" placeholder="password">
+                    <input class="d-block" name="password" type="password" id="password" placeholder="password">
                 </div>
             </div>
             <div class="ms-5">
                 <div>
                     <label for="lastname">Last name</label>
-                    <input class="d-block" type="text" id="lastname" placeholder="last name">
+                    <input class="d-block" name="last_name" type="text" id="lastname" placeholder="last name">
                 </div>
                 <div class="mt-2 mb-2">
                     <label for="date">Date of birth (MM/DD/YY)</label>
-                    <input class="d-block" type="date" id="date">
+                    <input class="d-block" name="birth_day" type="date" id="date" max="{% max_age %}">
                 </div>
                 <div>
                     <label for="confirm-password">Confirm password</label>
-                    <input class="d-block" type="password" id="confirm-password" placeholder="confirm password">
+                    <input class="d-block" name="confirm_password" type="password" id="confirm-password" placeholder="confirm password">
                 </div>
             </div>
         </div>
@@ -59,7 +62,7 @@
                 Continue with Google
             </button>
         </div>
-        <div class="Already d-flex justify-content-center">Already have an account?<a href="login.html">Log In</a></div>
+        <div class="Already d-flex justify-content-center">Already have an account?<a href="{% url 'auth_login' %}">Log In</a></div>
     </form>
 </div>
 

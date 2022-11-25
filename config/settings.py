@@ -10,6 +10,7 @@ DEBUG = config('DEBUG')
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -109,7 +110,11 @@ EMAIL_PORT = 587
 BOT_TOKEN = config('BOT_TOKEN')
 BOT_ADMIN_ID = config('BOT_ADMIN_ID')
 
+ACCOUNT_ACTIVATION_DAYS = 7
 
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 try:
     from .local_settings import *
